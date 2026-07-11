@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useStore } from '../store/useStore';
-import { User, Users, ArrowRight, Sparkles } from 'lucide-react';
+import { Users, ArrowRight, Sparkles } from 'lucide-react';
 
 interface OnboardingProps {
   onComplete: () => void;

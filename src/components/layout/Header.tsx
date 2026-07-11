@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Moon, Sun, Bell, User, ChevronDown } from 'lucide-react';
+import { Moon, Sun, Bell, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useStore } from '../../store/useStore';
 import { useLocation } from 'react-router-dom';

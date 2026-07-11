@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useStore } from '../store/useStore';
-import { Lock, CheckCircle, ChevronRight, Star } from 'lucide-react';
+import { Lock, CheckCircle, ChevronRight } from 'lucide-react';
 
 export default function PillarsPage() {
   const { user1, user2, activeUser } = useStore();

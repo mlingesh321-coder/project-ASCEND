@@ -1,11 +1,10 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { useStore } from '../store/useStore';
-import { Sun, Moon, User, Trash2, Download, Upload, RotateCcw, Calendar, Bell } from 'lucide-react';
+import { Sun, Moon, User, Trash2, Download, Calendar, Bell } from 'lucide-react';
 
 export default function SettingsPage() {
-  const { theme, setTheme, activeUser, user1, user2, updateUserName, startDate } = useStore();
-  const user = activeUser === 'user1' ? user1 : user2;
+  const { theme, setTheme, user1, user2, startDate } = useStore();
   const [name1, setName1] = useState(user1.name);
   const [name2, setName2] = useState(user2.name);
   const { updateUserName: updateName } = useStore();

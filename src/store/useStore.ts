@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { PILLARS_DATA } from '../data/pillars';
-import type { Pillar, Topic } from '../data/pillars';
+import type { Pillar } from '../data/pillars';
 
 export type ThemeMode = 'dark' | 'light';
 export type ActiveUser = 'user1' | 'user2';
@@ -186,7 +186,7 @@ const TODAY = new Date().toISOString().split('T')[0];
 
 export const useStore = create<AppState>()(
   persist(
-    (set, get) => ({
+    (set) => ({
       theme: 'dark',
       activeUser: 'user1',
       startDate: TODAY,

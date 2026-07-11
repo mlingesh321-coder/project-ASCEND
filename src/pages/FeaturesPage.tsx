@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useStore } from '../store/useStore';
-import { Play, Pause, RotateCcw, Plus, Trash2, Check, Target, Zap, Calendar, Award } from 'lucide-react';
+import { Play, Pause, RotateCcw, Plus, Trash2, Check } from 'lucide-react';
 
 // ─── Study Timer ───
 function StudyTimer({ userId }: { userId: 'user1' | 'user2' }) {
@@ -61,7 +61,7 @@ function StudyTimer({ userId }: { userId: 'user1' | 'user2' }) {
         {(Object.keys(LABELS) as ('focus' | 'short' | 'long')[]).map(m => (
           <button key={m} onClick={() => switchMode(m)}
             style={{
-              flex: 1, padding: '7px 4px', borderRadius: 8, border: 'none', cursor: 'pointer',
+              flex: 1, padding: '7px 4px', borderRadius: 8, cursor: 'pointer',
               background: mode === m ? 'rgba(59,130,246,0.2)' : 'rgba(255,255,255,0.05)',
               color: mode === m ? '#3b82f6' : 'var(--text-muted)',
               fontWeight: mode === m ? 700 : 400, fontSize: 12,
@@ -107,7 +107,7 @@ function StudyTimer({ userId }: { userId: 'user1' | 'user2' }) {
         <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
           onClick={() => setRunning(!running)}
           style={{
-            width: 120, height: 44, borderRadius: 12, border: 'none', cursor: 'pointer',
+            width: 120, height: 44, borderRadius: 12, cursor: 'pointer',
             background: running ? 'rgba(239,68,68,0.2)' : 'linear-gradient(135deg, #3b82f6, #8b5cf6)',
             color: running ? '#ef4444' : 'white', fontWeight: 700, fontSize: 14,
             display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
@@ -377,7 +377,7 @@ function CodingTracker({ userId }: { userId: 'user1' | 'user2' }) {
 
 // ─── Project Tracker ───
 function ProjectTracker({ userId }: { userId: 'user1' | 'user2' }) {
-  const { user1, user2, addProject, updateProject } = useStore();
+  const { user1, user2, addProject } = useStore();
   const user = userId === 'user1' ? user1 : user2;
   const [form, setForm] = useState({ name: '', description: '', techStack: '', githubUrl: '', liveUrl: '', status: 'in-progress', pillarId: 1 });
   const [adding, setAdding] = useState(false);
@@ -487,7 +487,7 @@ export default function FeaturesPage() {
           <motion.button key={t.id} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
             onClick={() => setActiveTab(t.id)}
             style={{
-              padding: '8px 16px', borderRadius: 10, border: 'none', cursor: 'pointer', fontSize: 13,
+              padding: '8px 16px', borderRadius: 10, cursor: 'pointer', fontSize: 13,
               background: activeTab === t.id ? 'rgba(59,130,246,0.2)' : 'var(--bg-card)',
               color: activeTab === t.id ? '#3b82f6' : 'var(--text-secondary)',
               fontWeight: activeTab === t.id ? 700 : 400,

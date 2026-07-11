@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useStore } from '../store/useStore';
 import {
   RadarChart, Radar, PolarGrid, PolarAngleAxis, ResponsiveContainer,
-  BarChart, Bar, XAxis, YAxis, Tooltip, Cell, LineChart, Line,
+  BarChart, Bar, XAxis, YAxis, Tooltip, Cell,
   AreaChart, Area, CartesianGrid, PieChart, Pie
 } from 'recharts';
 
@@ -38,11 +38,7 @@ export default function AnalyticsPage() {
     problems: Math.floor(Math.random() * 15),
   }));
 
-  // XP over time
-  const xpData = Array.from({ length: 12 }, (_, i) => ({
-    day: `Day ${(i + 1) * 30}`,
-    xp: Math.floor((user.xp / 12) * (i + 1) * (0.8 + Math.random() * 0.4)),
-  }));
+
 
   // Completion stats
   const totalTopics = user.pillars.reduce((s, p) => s + p.topics.length, 0);

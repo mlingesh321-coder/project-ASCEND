@@ -40,13 +40,13 @@ const RESUME_CHECKLIST = [
 ];
 
 export default function FinalAchievement() {
-  const { user1, user2, activeUser, startDate } = useStore();
+  const { user1, user2, activeUser } = useStore();
   const user = activeUser === 'user1' ? user1 : user2;
 
   const completedPillars = user.pillars.filter(p => p.completed).length;
   const overallProgress = Math.round(user.pillars.reduce((s, p) => s + p.progress, 0) / (user.pillars.length * 100) * 100);
   const isComplete = completedPillars === 15;
-  const dayNum = Math.max(1, Math.floor((Date.now() - new Date(startDate).getTime()) / 86400000) + 1);
+
 
   // Placement readiness score (based on progress)
   const placementScore = Math.round(

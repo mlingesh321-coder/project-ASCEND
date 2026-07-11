@@ -2,11 +2,11 @@ import { motion } from 'framer-motion';
 import { useStore } from '../store/useStore';
 import { useNavigate } from 'react-router-dom';
 import {
-  Flame, Zap, Star, Clock, BookOpen, Target, TrendingUp,
-  Award, Calendar, ChevronRight, Trophy, Rocket, ArrowRight
+  Flame, Zap, Star, Clock, BookOpen,
+  Calendar, ChevronRight, Trophy, ArrowRight
 } from 'lucide-react';
 import { XP_LEVELS_TABLE } from '../store/useStore';
-import { RadialBarChart, RadialBar, ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip } from 'recharts';
+import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip } from 'recharts';
 
 function StatCard({ icon: Icon, label, value, sub, color, delay = 0 }: any) {
   return (
@@ -63,7 +63,7 @@ export default function Dashboard() {
   );
   const completedPillars = user.pillars.filter(p => p.completed).length;
   const currentPillar = user.pillars.find(p => !p.completed && p.unlocked);
-  const nextMilestone = user.pillars.find(p => !p.completed);
+
 
   // XP level info
   const currentLevelXP = XP_LEVELS_TABLE[user.level] ?? 0;
@@ -85,10 +85,7 @@ export default function Dashboard() {
     return { day: d.toLocaleDateString('en', { weekday: 'short' }), hours: Math.random() * 4 + 0.5 };
   });
 
-  const pillarProgressData = user.pillars.slice(0, 8).map(p => ({
-    name: p.name.substring(0, 10),
-    value: p.progress, fill: p.color
-  }));
+
 
   return (
     <div>

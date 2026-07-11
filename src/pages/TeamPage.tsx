@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { useStore } from '../store/useStore';
-import { RadarChart, Radar, PolarGrid, PolarAngleAxis, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, Cell } from 'recharts';
-import { ArrowUp, ArrowDown, Minus } from 'lucide-react';
+import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip } from 'recharts';
+
 
 export default function TeamPage() {
   const { user1, user2, setActiveUser, activeUser, updateUserName } = useStore();
@@ -24,12 +24,7 @@ export default function TeamPage() {
     color: p.color,
   }));
 
-  // Radar
-  const radarData = user1.pillars.slice(0, 8).map((p, i) => ({
-    subject: p.name.split(' ')[0],
-    [user1.name]: p.progress,
-    [user2.name]: user2.pillars[i]?.progress ?? 0,
-  }));
+
 
   const UserCard = ({ user, userId }: { user: typeof user1; userId: 'user1' | 'user2' }) => {
     const pct = overallPct(user);
@@ -42,7 +37,6 @@ export default function TeamPage() {
         className="glass"
         style={{
           padding: 22, flex: 1,
-          border: isActive ? '1px solid rgba(59,130,246,0.4)' : '1px solid rgba(255,255,255,0.08)',
           boxShadow: isActive ? '0 0 20px rgba(59,130,246,0.1)' : 'none',
           position: 'relative'
         }}
@@ -81,7 +75,6 @@ export default function TeamPage() {
               padding: '6px 14px', borderRadius: 8, border: 'none', cursor: 'pointer', fontSize: 12, fontWeight: 600,
               background: isActive ? 'rgba(59,130,246,0.2)' : 'rgba(255,255,255,0.06)',
               color: isActive ? '#3b82f6' : 'var(--text-secondary)',
-              border: isActive ? '1px solid rgba(59,130,246,0.3)' : '1px solid transparent'
             }}>
             {isActive ? '✓ Active' : 'Switch'}
           </motion.button>
@@ -140,7 +133,6 @@ export default function TeamPage() {
       <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}
         style={{
           background: 'linear-gradient(135deg, rgba(245,158,11,0.1), rgba(251,191,36,0.08))',
-          border: '1px solid rgba(245,158,11,0.2)', borderRadius: 20, padding: '16px 22px', marginBottom: 24
         }}>
         <h2 style={{ fontSize: 18, fontWeight: 800, fontFamily: 'Space Grotesk' }}>👥 Team Mode – Shared Journey</h2>
         <p style={{ fontSize: 13, color: 'var(--text-secondary)', marginTop: 3 }}>

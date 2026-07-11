@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useStore } from '../store/useStore';
 import { useMemoStore } from '../store/useMemoStore';
-import { Plus, Trash2, Pin, PinOff, Edit3, Save, X, Search, BookOpen, Lightbulb, AlertCircle, RotateCcw, FileText } from 'lucide-react';
+import { Plus, Trash2, Pin, PinOff, Edit3, Save, X, Search } from 'lucide-react';
 import { PILLARS_DATA } from '../data/pillars';
 
 const CATEGORIES = [
@@ -35,7 +35,6 @@ function MemoCard({ memo, onEdit, onDelete, onTogglePin }: MemoCardProps) {
       whileHover={{ y: -2, boxShadow: `0 8px 32px rgba(0,0,0,0.3)` }}
       style={{
         background: memo.color || '#1a1f35',
-        border: `1px solid rgba(255,255,255,${memo.pinned ? '0.15' : '0.07'})`,
         borderRadius: 16, padding: '18px 18px 14px', position: 'relative',
         boxShadow: memo.pinned ? '0 0 20px rgba(245,158,11,0.15)' : 'none',
         transition: 'box-shadow 0.3s',
@@ -177,7 +176,6 @@ function EditModal({ memo, onSave, onClose }: EditModalProps) {
             <div key={c} onClick={() => setColor(c)}
               style={{
                 width: 24, height: 24, borderRadius: 7, background: c, cursor: 'pointer',
-                border: color === c ? '2px solid #3b82f6' : '2px solid rgba(255,255,255,0.1)',
                 transition: 'border 0.2s'
               }} />
           ))}
@@ -252,7 +250,6 @@ export default function MemoPage() {
                 padding: '8px 14px', borderRadius: 10, border: 'none', cursor: 'pointer', fontSize: 12, fontWeight: 600,
                 background: filterCat === c.id ? 'rgba(59,130,246,0.2)' : 'var(--bg-card)',
                 color: filterCat === c.id ? '#3b82f6' : 'var(--text-secondary)',
-                border: filterCat === c.id ? '1px solid rgba(59,130,246,0.3)' : '1px solid var(--border)'
               }}>
               {c.icon} {c.label}
             </motion.button>

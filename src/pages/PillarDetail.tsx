@@ -2,7 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { useStore } from '../store/useStore';
-import { ArrowLeft, CheckCircle, Circle, ChevronDown, ChevronUp, Zap, Lock, Star, BookOpen, Edit3, Save } from 'lucide-react';
+import { ArrowLeft, CheckCircle, ChevronDown, ChevronUp, BookOpen, Edit3, Save } from 'lucide-react';
 
 export default function PillarDetail() {
   const { id } = useParams();
